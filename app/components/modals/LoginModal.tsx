@@ -42,7 +42,7 @@ const LoginModal = () => {
   const onSubmit: SubmitHandler<FieldValues> = 
   (data) => {
     setIsLoading(true);
-
+    console.log('loggin in')
     signIn('credentials', { 
       ...data, 
       redirect: false,
@@ -51,13 +51,13 @@ const LoginModal = () => {
       setIsLoading(false);
 
       if (callback?.ok) {
+        console.log('logged in from console')
         toast.success('Logged in');
         router.refresh();
         loginModal.onClose();
       }
       
       if (callback?.error) {
-        console.log('ERROR LOGGING IN!');
         toast.error(callback.error);
       }
     });

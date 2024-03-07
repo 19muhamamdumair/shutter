@@ -45,7 +45,7 @@ export type CountrySelectValue = {
           classNames={{
             control: () => 'p-3 border-2',
             input: () => 'text-lg',
-            option: () => 'text-lg'
+            option: () => 'text-lg',
           }}
           theme={(theme) => ({
             ...theme,

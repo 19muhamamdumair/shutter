@@ -2,19 +2,16 @@ import { NextResponse } from "next/server";
 
 import prisma from "@/app/libs/prismadb";
 import getCurrentUser from "@/app/actions/getCurrentUser";
-import { ObjectId } from 'bson';
 
 export async function POST(
   request: Request, 
 ) {
 
-//   const currentUser = await getCurrentUser();
+  const currentUser = await getCurrentUser();
 
-//   if (!currentUser) {
-//     return NextResponse.error();
-//   }
-    let userId
-    userId = new ObjectId().toString();
+  if (!currentUser) {
+    return NextResponse.error();
+  }
 
   const body = await request.json();
   const { 
@@ -40,7 +37,7 @@ export async function POST(
       guestCount,
       locationValue: location.value,
       price: parseInt(price, 10),
-      userId: userId
+      userId: currentUser.id
     }
   });
 

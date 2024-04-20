@@ -37,7 +37,7 @@ const SearchModal = () => {
 
     const Map = useMemo(() => dynamic(() => import('../Map'), {
         ssr: false,
-    }), [location]);
+    }), []);
 
     const onBack = useCallback(() => {
         setStep((value) => value - 1);
@@ -105,8 +105,8 @@ const SearchModal = () => {
     let bodyContent = (
         <div className="flex flex-col gap-8">
             <Heading 
-                title="Where do ou wanan go?"
-                subtitle="Find the perfect location!"
+                title="Where are you based?"
+                subtitle="Find creators near you!"
             />
             <CountrySelect 
                 value={location}
@@ -123,8 +123,8 @@ const SearchModal = () => {
         bodyContent = (
             <div className="flex flex-col gap-8">
                 <Heading 
-                    title="When do you plan to go?"
-                    subtitle="Make sure everyone is free!"
+                    title="When are you looking to book?"
+                    subtitle="Ensure the creators are available for you!"
                 />
                 <Calendar 
                     value={dateRange}
@@ -139,23 +139,23 @@ const SearchModal = () => {
             <div className="flex flex-col gap-8">
                 <Heading 
                     title="More information"
-                    subtitle="Find your perfect place!"
+                    subtitle="Find your perfect creator!"
                 />
                 <Counter 
-                    title="Guests"
-                    subtitle="How many guests are coming?"
+                    title="Stars"
+                    subtitle="How many stars do they need to have?"
                     value={guestCount}
                     onChange={(value) => setGuestCount(value)}
                 />
                 <Counter 
-                    title="Rooms"
-                    subtitle="How many rooms do you need?"
+                    title="Rating"
+                    subtitle="What rating do you want the creator to be?"
                     value={roomCount}
                     onChange={(value) => setRoomCount(value)}
                 />
                 <Counter 
-                    title="Bathrooms"
-                    subtitle="How many bathrooms do you need?"
+                    title="Experiance"
+                    subtitle="How experienced do you want the creator to be?"
                     value={bathroomCount}
                     onChange={(value) => setBathroomCount(value)}
                 />

@@ -65,7 +65,7 @@ const RentModal = () => {
 
     const Map = useMemo(() => dynamic(() => import('../Map'), {
         ssr: false
-    }), [location])
+    }), [])
 
     const setCustomValue = (id: string, value: any) => {
         setValue(id, value, {
@@ -126,7 +126,7 @@ const RentModal = () => {
     let bodyContent = (
         <div className="flex flex-col gap-8">
             <Heading 
-                title="Which of these category best describes your home?" 
+                title="Which of these category best describes your work?" 
                 subtitle="Pick a category"
                 />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[50vh] overflow-y-auto">
@@ -167,26 +167,26 @@ const RentModal = () => {
         bodyContent = (
             <div className="flex flex-col gap-8">
                 <Heading
-                    title="Share some basics abput your place"
-                    subtitle="What amenities do you have?"
+                    title="Share some basic information about your work"
+                    subtitle="Description can help potential clients?"
                 />
                 <Counter 
-                    title="Kitchen"
-                    subtitle="How many Bedroom do you have?"
+                    title="Experiance"
+                    subtitle="How many years of experiance do you have?"
                     value={guestCount}
                     onChange={(value) => setCustomValue('guestCount', value)}
                 />
                 <hr />
                 <Counter 
-                    title="Rooms"
-                    subtitle="How many living rooms do you have?"
+                    title="Maximum"
+                    subtitle="Maximum days availability? set 0 for no max"
                     value={roomCount}
                     onChange={(value) => setCustomValue('roomCount', value)}
                 />
                 <hr />
                 <Counter 
-                    title="Bathrooms"
-                    subtitle="How many bathrooms do you have?"
+                    title="Minimum"
+                    subtitle="Minimum days availability? set 0 for no minimum"
                     value={bathroomCount}
                     onChange={(value) => setCustomValue('bathroomCount', value)}
                 />
@@ -198,8 +198,8 @@ const RentModal = () => {
         bodyContent = (
             <div className="flex flex-col gap-8">
                 <Heading 
-                    title="Add a photo of your place"
-                    subtitle="Show guests what your place looks like!"
+                    title="Add a photo of your work"
+                    subtitle="Show clients what your work looks like!"
                 />
                 <ImageUpload 
                     value={imageSrc}
@@ -213,7 +213,7 @@ const RentModal = () => {
         bodyContent = (
             <div className="flex flex-col gap-8">
                 <Heading 
-                    title="How would you describe your place?"
+                    title="How would you describe your work?"
                     subtitle="Short and sweet works best!"
                 />
                 <Input 
@@ -242,7 +242,7 @@ const RentModal = () => {
             <div className="flex flex-col gap-8">
                 <Heading 
                     title="Now, set your price"
-                    subtitle="What would be the list price?"
+                    subtitle="What would be your day rate?"
                 />
                 <Input 
                     id="price"
@@ -266,7 +266,7 @@ const RentModal = () => {
             actionLabel={actionLabel}
             secondaryActionLabel={secondaryActionLabel}
             secondaryAction={step == STEPS.CATEGORY ? undefined : onBack}
-            title="Airbnb your home!"
+            title="Shutter giude your creativity!"
             body={bodyContent}
         />
     )

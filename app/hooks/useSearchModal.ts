@@ -1,4 +1,6 @@
 import { create } from 'zustand';
+import { Suspense } from "react"
+
 
 interface SearchModalStore {
   isOpen: boolean;

@@ -6,6 +6,8 @@ import { differenceInDays } from "date-fns";
 import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 import { BiSearch } from "react-icons/bi";
+import { Suspense } from "react"
+
 
 const Search = () => {
     const searchModal = useSearchModal();
@@ -51,6 +53,8 @@ const Search = () => {
 
 
     return (
+    <Suspense>
+
         <div className="border-[1px] w-full md:w-auto py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer" onClick={searchModal.onOpen}>
             <div className="flex flex-row items-center justify-between">
                 <div className="text-sm font-semibold px-6">
@@ -67,6 +71,7 @@ const Search = () => {
                 </div>
             </div>
         </div>
+        </Suspense>
     )
 }
 

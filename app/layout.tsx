@@ -25,6 +25,7 @@ export default async function RootLayout({
   const currentUser = await getCurrentUser();
 
   return (
+    <Suspense>
     <html lang="en">
       <body className={inter.className}>
           <ToasterProvider />
@@ -39,5 +40,6 @@ export default async function RootLayout({
           </div>
       </body>
     </html>
+    </Suspense>
   );
 }
